@@ -11,7 +11,7 @@ class Marksmin_ext {
 
 	public $EE;
 	public $name = 'Marksmin';
-	public $version = '1.0.0';
+	public $version = '1.1.0';
 	public $description = 'Minify HTML output';
 	public $docs_url = '';
 	public $settings_exist = 'n';
@@ -25,7 +25,6 @@ class Marksmin_ext {
 	 */
 	public function __construct($settings = array())
 	{
-		$this->EE =& get_instance();
 		$this->settings = $settings;
 	}
 
@@ -36,7 +35,7 @@ class Marksmin_ext {
 	 */
 	public function activate_extension()
 	{
-		$this->EE->db->insert('extensions',
+		ee()->db->insert('extensions',
 			array(
 				'class' => __CLASS__,
 				'method' => 'template_post_parse',
@@ -56,8 +55,8 @@ class Marksmin_ext {
 	 */
 	public function disable_extension()
 	{
-		$this->EE->db->where('class', __CLASS__);
-		$this->EE->db->delete('extensions');
+		ee()->db->where('class', __CLASS__);
+		ee()->db->delete('extensions');
 	}
 
 	/**
@@ -70,10 +69,15 @@ class Marksmin_ext {
 	 */
 	public function template_post_parse($template, $sub, $site_id)
 	{
-		// Play nice with other extensions
-		if (isset($this->EE->extensions->last_call) && $this->EE->extensions->last_call)
+		if (ee()->TMPL->template_type != 'webpage')
 		{
-			$template = $this->EE->extensions->last_call;
+			return $template;
+		}
+
+		// Play nice with other extensions
+		if (isset(ee()->extensions->last_call) && ee()->extensions->last_call)
+		{
+			$template = ee()->extensions->last_call;
 		}
 
 		// Do nothing if not final template
@@ -83,7 +87,7 @@ class Marksmin_ext {
 		}
 
 		// Is HTML minification disabled
-		if ($this->EE->config->item('marksmin_enabled') !== true)
+		if (ee()->config->item('marksmin_enabled') !== true)
 		{
 			return $template;
 		}
@@ -92,7 +96,7 @@ class Marksmin_ext {
 
 		$options = array();
 
-		$options['xhtml'] = $this->EE->config->item('marksmin_xhtml');
+		$options['xhtml'] = ee()->config->item('marksmin_xhtml');
 
 		return Minify_HTML::minify($template, $options);
 	}
