@@ -1,3 +1,10 @@
+# 1.1.1
+
+2013-10-26
+
+- Fixed limitation that stopped 404 page from minifying
+- General extensions cleanup and formatting tweaks
+
 # 1.1.0
 
 2013-09-26
