@@ -1,3 +1,9 @@
+# 1.1.2
+
+2013-12-30
+
+- Removed cp_assets from minification to resolve XML issues
+
 # 1.1.1
 
 2013-10-26

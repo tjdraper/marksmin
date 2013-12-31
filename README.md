@@ -1,4 +1,4 @@
-# Marksmin 1.1.1
+# Marksmin 1.1.2
 
 This extensions uses the [Minify](https://code.google.com/p/minify/) library to minify EE rendered markup.
 
