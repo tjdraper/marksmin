@@ -10,7 +10,7 @@
 class Marksmin_ext {
 
 	public $name = 'Marksmin';
-	public $version = '1.1.1';
+	public $version = '1.1.2';
 	public $description = 'Minify HTML output';
 	public $docs_url = '';
 	public $settings_exist = 'n';
