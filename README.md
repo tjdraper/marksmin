@@ -1,6 +1,6 @@
 # Marksmin 1.1.2
 
-Marksmin will minify the output of your ExpressionEngine templates. This is extrememly useful if you need to count on minified output for inline block elements in your CSS, and can save your end users a few bytes in the proccess. This extension uses the [Minify](https://code.google.com/p/minify/) library.
+Marksmin will minify the output of your ExpressionEngine templates. This is extrememly useful if you need to count on minified output for inline block elements in your CSS, and can save your end users a few bytes in the process. This extension uses the [Minify](https://code.google.com/p/minify/) library.
 
 To use, just enable the extenstion, and place the following items in your EE config file.
 
