@@ -1,28 +1,26 @@
 # Marksmin 1.1.2
 
-This extensions uses the [Minify](https://code.google.com/p/minify/) library to minify EE rendered markup.
+Marksmin will minify the output of your ExpressionEngine templates. This is extrememly useful if you need to count on minified output for inline block elements in your CSS, and can save your end users a few bytes in the proccess. This extension uses the [Minify](https://code.google.com/p/minify/) library.
 
-## Usage
+To use, just enable the extenstion, and place the following items in your EE config file.
 
-Install and enable the extension. The following two settings are applicable for your config file.
+	$config['marksmin_enabled'] = true;
+	$config['marksmin_xhtml'] = false; // Set to true if you're living in the past
 
-```php
-$config['marksmin_enabled'] = true;
-$config['marksmin_xhtml'] = false;
-```
+That's it. The output of your standard HTML EE templates will now be minified.
 
 ## License
 
-Copyright 2013 Caddis Interactive, LLC
+Copyright 2014 Caddis Interactive, LLC
 
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-       http://www.apache.org/licenses/LICENSE-2.0
+	http://www.apache.org/licenses/LICENSE-2.0
 
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
