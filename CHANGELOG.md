@@ -1,3 +1,9 @@
+# 1.1.3
+
+2014-04-25
+
+- Added check to ensure 404 templates are minified in EE2.8+
+
 # 1.1.2
 
 2013-12-30

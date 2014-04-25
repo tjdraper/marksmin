@@ -10,7 +10,7 @@
 class Marksmin_ext {
 
 	public $name = 'Marksmin';
-	public $version = '1.1.2';
+	public $version = '1.1.3';
 	public $description = 'Minify HTML output';
 	public $docs_url = '';
 	public $settings_exist = 'n';
@@ -51,8 +51,7 @@ class Marksmin_ext {
 	 */
 	public function update_extension($current = '')
 	{
-		if ($current == '' or $current == $this->version)
-		{
+		if ($current == '' or $current == $this->version) {
 			return false;
 		}
 
@@ -84,27 +83,23 @@ class Marksmin_ext {
 	public function template_post_parse($template, $sub, $site_id)
 	{
 		$type = ee()->TMPL->template_type;
-		
+
 		$currentTemplate = ee()->TMPL->group_name . '/' . ee()->TMPL->template_name;
 		$notFoundTemplate = ee()->config->item('site_404');
 
-		if ($type == 'webpage' or $currentTemplate == $notFoundTemplate)
-		{
+		if ($type == 'webpage' or $type = '404' or $currentTemplate == $notFoundTemplate) {
 			// Play nice with other extensions
-			if (isset(ee()->extensions->last_call) and ee()->extensions->last_call)
-			{
+			if (isset(ee()->extensions->last_call) and ee()->extensions->last_call) {
 				$template = ee()->extensions->last_call;
 			}
 
 			// Do nothing if not final template
-			if ($sub !== false)
-			{
+			if ($sub !== false) {
 				return $template;
 			}
 
 			// Is HTML minification disabled
-			if (ee()->config->item('marksmin_enabled') !== true)
-			{
+			if (ee()->config->item('marksmin_enabled') !== true) {
 				return $template;
 			}
 
