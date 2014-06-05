@@ -10,7 +10,7 @@
 class Marksmin_ext {
 
 	public $name = 'Marksmin';
-	public $version = '1.1.3';
+	public $version = '1.1.4';
 	public $description = 'Minify HTML output';
 	public $docs_url = '';
 	public $settings_exist = 'n';
@@ -87,7 +87,8 @@ class Marksmin_ext {
 		$currentTemplate = ee()->TMPL->group_name . '/' . ee()->TMPL->template_name;
 		$notFoundTemplate = ee()->config->item('site_404');
 
-		if ($type == 'webpage' or $type = '404' or $currentTemplate == $notFoundTemplate) {
+		if ($type == 'webpage' or $type == '404' or $currentTemplate == $notFoundTemplate) {
+
 			// Play nice with other extensions
 			if (isset(ee()->extensions->last_call) and ee()->extensions->last_call) {
 				$template = ee()->extensions->last_call;

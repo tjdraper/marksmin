@@ -1,3 +1,9 @@
+# 1.1.4
+
+2014-05-05
+
+- Resolved issue where markup would be minified regardless of conditional logic
+
 # 1.1.3
 
 2014-04-25
