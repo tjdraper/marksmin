@@ -3,7 +3,7 @@
 defined('MARKSMIN_DESCRIPTION') || define('MARKSMIN_DESCRIPTION', 'Minify HTML output');
 defined('MARKSMIN_DOCS_URL') || define('MARKSMIN_DOCS_URL', 'https://buzzingpixel.com/software/marksmin/documentation');
 defined('MARKSMIN_NAME') || define('MARKSMIN_NAME', 'Marksmin');
-defined('MARKSMIN_VER') || define('MARKSMIN_VER', '2.0.0');
+defined('MARKSMIN_VER') || define('MARKSMIN_VER', '1.2.0');
 
 return array(
 	'author' => 'TJ Draper',
