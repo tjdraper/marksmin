@@ -1,34 +1,29 @@
 <?php if (! defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
- * @package  Marksmin
- * @author   Michael Leigeber
- * @license  http://www.apache.org/licenses/LICENSE-2.0
- * @link     http://www.caddis.co
+ * Marksmin extension
+ *
+ * @package marksmin
+ * @author TJ Draper <tj@buzzingpixel.com>
+ * @link https://buzzingpixel.com/software/marksmin
+ * @copyright Copyright (c) 2016, BuzzingPixel
  */
 
-class Marksmin_ext {
+// Include configuration file
+include_once PATH_THIRD . '/marksmin/addon.setup.php';
 
-	public $name = 'Marksmin';
-	public $version = '1.1.4';
-	public $description = 'Minify HTML output';
-	public $docs_url = '';
+class Marksmin_ext
+{
+	// Set properties for EE
+	public $description = MARKSMIN_DESCRIPTION;
+	public $docs_url = MARKSMIN_DOCS_URL;
+	public $name = MARKSMIN_NAME;
 	public $settings_exist = 'n';
-
-	/**
-	 * Constructor
-	 *
-	 * @param  mixed Settings array or empty string if none exist
-	 * @return void
-	 */
-	public function __construct($settings = array())
-	{
-		$this->settings = $settings;
-	}
+	public $version = MARKSMIN_VER;
 
 	/**
 	 * Activate Extension
-	 * 
+	 *
 	 * @return void
 	 */
 	public function activate_extension()
@@ -51,7 +46,7 @@ class Marksmin_ext {
 	 */
 	public function update_extension($current = '')
 	{
-		if ($current == '' or $current == $this->version) {
+		if ($current === '' or $current === $this->version) {
 			return false;
 		}
 
@@ -76,19 +71,18 @@ class Marksmin_ext {
 	 * Method for template_post_parse hook
 	 *
 	 * @param  string  Parsed template string
-	 * @param  bool    Whether an embed or not
+	 * @param  bool Whether an embed or not
 	 * @param  integer Site ID
-	 * @return string  Template string
+	 * @return string Template string
 	 */
-	public function template_post_parse($template, $sub, $site_id)
+	public function template_post_parse($template, $sub, $siteId)
 	{
 		$type = ee()->TMPL->template_type;
 
 		$currentTemplate = ee()->TMPL->group_name . '/' . ee()->TMPL->template_name;
 		$notFoundTemplate = ee()->config->item('site_404');
 
-		if ($type == 'webpage' or $type == '404' or $currentTemplate == $notFoundTemplate) {
-
+		if ($type === 'webpage' or $type === '404' or $currentTemplate === $notFoundTemplate) {
 			// Play nice with other extensions
 			if (isset(ee()->extensions->last_call) and ee()->extensions->last_call) {
 				$template = ee()->extensions->last_call;

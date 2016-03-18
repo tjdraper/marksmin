@@ -1,17 +1,19 @@
-# Marksmin 1.1.4
+# Marksmin 2.0.0 for ExpressionEngine
 
 Marksmin will minify the output of your ExpressionEngine templates. This is extremely useful if you need to count on minified output for inline block elements in your CSS, and can save your end users a few bytes in the process. This extension uses the [Minify](https://code.google.com/p/minify/) library.
 
-To use, just enable the extenstion, and place the following parameters in your EE config file.
+To use, enable the extenstion, and place the following parameters in your EE config file.
 
 	$config['marksmin_enabled'] = true;
 	$config['marksmin_xhtml'] = false; // Set to true if you're living in the past
 
 That's it. The output of your standard HTML EE templates will now be minified.
 
+View changelog and documentation at: https://buzzingpixel.com/software/marksmin/documentation
+
 ## License
 
-Copyright 2014 Caddis Interactive, LLC
+Copyright 2016 BuzzingPixel, LLC
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
