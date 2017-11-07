@@ -1,0 +1,23 @@
+{
+    "name": "tjdraper/marksmin-ee",
+    "version": "1.2.1",
+    "description": "Minify ExpressionEngine HTML output",
+    "type": "ee-add-on",
+    "authors": [
+        {
+            "name": "TJ Draper",
+            "email": "tj@buzzingpixel.com",
+            "homepage": "https://buzzingpixel.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ],
+    "extra": {
+        "handle": "marksmin",
+        "systemPath": "system/user/addons/marksmin"
+    }
+}
