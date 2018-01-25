@@ -75,15 +75,32 @@ class Marksmin_ext
      */
     public function template_post_parse($template, $sub)
     {
-        $type = ee()->TMPL->template_type;
+        /** @var \EE_Template $eeTemplateService */
+        $eeTemplateService = ee()->TMPL;
 
-        $currentTemplate = ee()->TMPL->group_name . '/' . ee()->TMPL->template_name;
-        $notFoundTemplate = ee()->config->item('site_404');
+        /** @var \EE_Config $eeConfigService */
+        $eeConfigService = ee()->config;
 
-        if ($type === 'webpage' || $type === '404' || $currentTemplate === $notFoundTemplate) {
+        /** @var \EE_Extensions $eeExtensionsService */
+        $eeExtensionsService = ee()->extensions;
+
+        $type = $eeTemplateService->template_type;
+
+        $groupName = $eeTemplateService->group_name;
+        $templateName = $eeTemplateService->template_name;
+
+        $currentTemplate = "{$groupName}/{$templateName}";
+        $notFoundTemplate = $eeConfigService->item('site_404');
+
+        if ($type === 'webpage' ||
+            $type === '404' ||
+            $currentTemplate === $notFoundTemplate
+        ) {
             // Play nice with other extensions
-            if (isset(ee()->extensions->last_call) && ee()->extensions->last_call) {
-                $template = ee()->extensions->last_call;
+            if (isset($eeExtensionsService->last_call) &&
+                $eeExtensionsService->last_call
+            ) {
+                $template = $eeExtensionsService->last_call;
             }
 
             // Do nothing if not final template
@@ -92,7 +109,7 @@ class Marksmin_ext
             }
 
             // Is HTML minification disabled
-            if (ee()->config->item('marksmin_enabled') !== true) {
+            if ($eeConfigService->item('marksmin_enabled') !== true) {
                 return $template;
             }
 
