@@ -4,8 +4,8 @@ Marksmin will minify the output of your ExpressionEngine templates. This is extr
 
 To use, enable the extenstion, and place the following parameters in your EE config file.
 
-	$config['marksmin_enabled'] = true;
-	$config['marksmin_xhtml'] = false; // Set to true if you're living in the past
+    $config['marksmin_enabled'] = true;
+    $config['marksmin_xhtml'] = false; // Set to true if you're living in the past
 
 That's it. The output of your standard HTML EE templates will now be minified.
 
@@ -19,7 +19,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-	http://www.apache.org/licenses/LICENSE-2.0
+    http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
