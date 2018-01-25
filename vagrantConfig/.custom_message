@@ -1,0 +1,3 @@
+echo '';
+echo 'Use `dbBackup` to initiate back up of site database to `localStorage/dbBackups`';
+echo 'Use `provisionComposerEE` to make sure composer EE and add-on symlinks are in place';

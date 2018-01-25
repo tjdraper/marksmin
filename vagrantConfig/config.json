@@ -1,0 +1,21 @@
+{
+    "ip": "192.168.56.102",
+    "hostname": "marksmin",
+    "name": "marksmin",
+    "publicKey": "~/.ssh/id_rsa.pub",
+    "privateKey": "~/.ssh/id_rsa",
+    "directories": [
+        {
+            "relative": true,
+            "map": "/",
+            "to": "/home/vagrant/development/"
+        }
+    ],
+    "databases": [
+        {
+            "name": "site",
+            "user": "site",
+            "password": "secret"
+        }
+    ]
+}

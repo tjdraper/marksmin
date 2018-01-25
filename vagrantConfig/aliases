@@ -1,0 +1,2 @@
+alias dbBackup='. /home/vagrant/development/vagrantConfig/dbBackups.sh';
+alias provisionComposerEE='php /home/vagrant/development/provisionComposerEE';

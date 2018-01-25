@@ -2,7 +2,9 @@
 	# Project
 #------------------------------------
 
-libraries/*
+/libraries/ExpressionEngine/system/user/cache/*
+/libraries/ExpressionEngine/system/user/config/*
+/libraries/ExpressionEngine/system/user/templates/*
 
 
 
