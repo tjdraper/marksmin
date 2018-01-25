@@ -18,6 +18,6 @@
     ],
     "extra": {
         "handle": "marksmin",
-        "systemPath": "system/user/addons/marksmin"
+        "systemPath": "marksmin"
     }
 }
