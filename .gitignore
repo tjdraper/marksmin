@@ -12,6 +12,8 @@ libraries/*
 	# Tools
 #------------------------------------
 
+/auth.json
+/marksmin/vendor/*
 /fabCache/*
 configLocal.json
 localStorage/*

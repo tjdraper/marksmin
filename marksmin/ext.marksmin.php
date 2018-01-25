@@ -41,8 +41,8 @@ class Marksmin_ext
 
     /**
      * Update Extension
-     *
-     * @return mixed void on update / false if none
+     * @param string $current
+     * @return bool
      */
     public function update_extension($current = '')
     {
@@ -60,8 +60,6 @@ class Marksmin_ext
 
     /**
      * Disable Extension
-     *
-     * @return void
      */
     public function disable_extension()
     {
@@ -71,22 +69,20 @@ class Marksmin_ext
 
     /**
      * Method for template_post_parse hook
-     *
-     * @param  string  Parsed template string
-     * @param  bool Whether an embed or not
-     * @param  integer Site ID
+     * @param string  Parsed template string
+     * @param bool Whether an embed or not
      * @return string Template string
      */
-    public function template_post_parse($template, $sub, $siteId)
+    public function template_post_parse($template, $sub)
     {
         $type = ee()->TMPL->template_type;
 
         $currentTemplate = ee()->TMPL->group_name . '/' . ee()->TMPL->template_name;
         $notFoundTemplate = ee()->config->item('site_404');
 
-        if ($type === 'webpage' or $type === '404' or $currentTemplate === $notFoundTemplate) {
+        if ($type === 'webpage' || $type === '404' || $currentTemplate === $notFoundTemplate) {
             // Play nice with other extensions
-            if (isset(ee()->extensions->last_call) and ee()->extensions->last_call) {
+            if (isset(ee()->extensions->last_call) && ee()->extensions->last_call) {
                 $template = ee()->extensions->last_call;
             }
 
@@ -100,13 +96,11 @@ class Marksmin_ext
                 return $template;
             }
 
-            require_once 'libraries/Minify/HTML.php';
-
             $options = array(
                 'xhtml' => ee()->config->item('marksmin_xhtml')
             );
 
-            return Minify_HTML::minify($template, $options);
+            return \Minify_HTML::minify($template, $options);
         }
 
         return $template;

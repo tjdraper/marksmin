@@ -14,8 +14,19 @@
         {
             "type": "composer",
             "url": "https://asset-packagist.org"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:tjdraper/expressionengine.git"
         }
     ],
+    "require": {
+        "roave/security-advisories": "dev-master",
+        "mrclay/minify": "^3.0.3"
+    },
+    "require-dev": {
+        "tjdraper/expressionengine": "^4.0.7"
+    },
     "extra": {
         "handle": "marksmin",
         "systemPath": "marksmin"

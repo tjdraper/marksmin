@@ -1,0 +1,6 @@
+{
+    "require": {
+        "roave/security-advisories": "dev-master",
+        "mrclay/minify": "^3.0.3"
+    }
+}
