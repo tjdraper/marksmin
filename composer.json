@@ -1,6 +1,6 @@
 {
     "name": "tjdraper/marksmin-ee",
-    "version": "1.3.0",
+    "version": "1.3.1",
     "description": "Minify ExpressionEngine HTML output",
     "type": "ee-add-on",
     "authors": [
@@ -21,11 +21,11 @@
         }
     ],
     "require": {
-        "roave/security-advisories": "dev-master",
         "mrclay/minify": "^3.0.3"
     },
     "require-dev": {
-        "tjdraper/expressionengine": "^4.0.7"
+        "tjdraper/expressionengine": "^4.0.7",
+        "roave/security-advisories": "dev-master"
     },
     "extra": {
         "handle": "marksmin",
