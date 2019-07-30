@@ -1,0 +1,41 @@
+<?php
+
+/** @noinspection PhpUnhandledExceptionInspection */
+
+$appDir = dirname(__DIR__, 2);
+$baseDir = __DIR__;
+$packageDir = $baseDir . '/package';
+$systemDir = $packageDir . '/system/user/marksmin';
+
+exec("mkdir -p {$systemDir}");
+
+exec("cp -r {$appDir}/marksmin/* {$systemDir}/");
+
+exec("composer install -d {$systemDir} --no-suggest --no-progress");
+
+$composerJson = json_decode(file_get_contents($appDir . '/composer.json'), true);
+
+/** @noinspection PhpComposerExtensionStubsInspection */
+$zip = new ZipArchive();
+/** @noinspection PhpComposerExtensionStubsInspection */
+$zip->open("{$baseDir}/marksmin-{$composerJson['version']}.zip", ZipArchive::CREATE | ZipArchive::OVERWRITE);
+
+$files = new RecursiveIteratorIterator(
+    new RecursiveDirectoryIterator($packageDir),
+    RecursiveIteratorIterator::LEAVES_ONLY
+);
+
+foreach ($files as $file) {
+    if ($file->isDir()) {
+        continue;
+    }
+
+    $filePath = $file->getRealPath();
+    $relativePath = substr($filePath, strlen($packageDir) + 1);
+
+    $zip->addFile($filePath, $relativePath);
+}
+
+$zip->close();
+
+exec("rm -rf {$packageDir}");
